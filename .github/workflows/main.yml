@@ -5,10 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Build with Buildozer
-        uses: ArtemSerebriakov/buildozer-action@v1
+        uses: Enteoff/buildozer-action@v1.2.1
         with:
           command: buildozer android debug
+          
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
