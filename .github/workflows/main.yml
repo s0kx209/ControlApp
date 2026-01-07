@@ -1,19 +1,19 @@
-name: Build Android APK
+name: Build APK
 on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@eef6142e180e912f699013f2f1731d2229552ddc # v4
       
       - name: Build with Buildozer
-        uses: kivy/buildozer-action@v1
+        uses: kivy/buildozer-action@dd697e84992110c95356e92c43105df54992f447 # v1
         with:
           command: buildozer android debug
           
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea23f8b31550291497d519b59 # v4
         with:
-          name: my-app-apk
+          name: my-app
           path: bin/*.apk
           
