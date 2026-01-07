@@ -7,3 +7,4 @@ requirements = python3,kivy
 orientation = portrait
 permissions = INTERNET
 android.arch = armeabi-v7a
+
