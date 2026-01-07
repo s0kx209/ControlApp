@@ -1,10 +1,17 @@
-[app]
-title = My Control App
-package.name = remote.parent.control
-source.dir = .
-version = 0.1
-requirements = python3,kivy
-orientation = portrait
-permissions = INTERNET
-android.arch = armeabi-v7a
-
+name: Build Android APK
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build with Buildozer
+        uses: ArtemSerebriakov/buildozer-action@v1
+        with:
+          command: buildozer android debug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-app-apk
+          path: bin/*.apk
+          
